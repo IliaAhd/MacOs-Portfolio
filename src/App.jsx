@@ -1,4 +1,9 @@
 import { Dock, Navbar, Welcome } from "@components";
+import { TerminalWindow } from "@windows";
+import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
+
+gsap.registerPlugin(Draggable);
 
 function App() {
   return (
@@ -6,6 +11,8 @@ function App() {
       <Navbar />
       <Welcome />
       <Dock />
+
+      <TerminalWindow />
     </main>
   );
 }
