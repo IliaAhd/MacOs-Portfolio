@@ -1,3 +1,4 @@
-import TerminalWindow from "@windows/Terminal";
+import Terminal from "@windows/Terminal";
+import Safari from "@windows/Safari";
 
-export { TerminalWindow };
+export { Terminal, Safari };

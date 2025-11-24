@@ -77,25 +77,10 @@ const dockApps = [
 const blogPosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
-    title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+    date: "Nov 24, 2025",
+    title: "چرا امروزه به فریمورک‌های فرانت‌اند مثل React نیاز داریم؟",
     image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
-  },
-  {
-    id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
-  },
-  {
-    id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    link: "https://www.linkedin.com/posts/ilia-ahadi_%DA%86%D8%B1%D8%A7-%D8%A7%D9%85%D8%B1%D9%88%D8%B2%D9%87-%D8%A8%D9%87-%D9%81%D8%B1%DB%8C%D9%85%D9%88%D8%B1%DA%A9%D9%87%D8%A7%DB%8C-%D9%81%D8%B1%D8%A7%D9%86%D8%AA%D8%A7%D9%86%D8%AF-%D9%85%D8%AB%D9%84-react-activity-7398658922200604672-McT5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWavpsBIXuYCwEH55tsnqgJdnRv1gTPNhE",
   },
 ];
 
