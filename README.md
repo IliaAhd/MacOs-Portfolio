@@ -2,7 +2,7 @@
 
 A sleek, interactive macOS-inspired portfolio built with React, showcasing projects, skills, and professional information in a beautiful retro desktop environment.
 
-![Portfolio Screenshot](/images/screenshot.png)
+![Portfolio Screenshot](https://raw.githubusercontent.com/IliaAhd/MacOs-Portfolio/public/images/screenshot.png)
 
 ## Features
 
