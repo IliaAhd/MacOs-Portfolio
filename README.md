@@ -1,16 +1,165 @@
-# React + Vite
+# MacOS Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, interactive macOS-inspired portfolio built with React, showcasing projects, skills, and professional information in a beautiful retro desktop environment.
 
-Currently, two official plugins are available:
+![Portfolio Screenshot](/images/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **macOS Desktop UI** – Authentic desktop experience with draggable windows, dock, and menubar
+- **Interactive Windows** – Multiple window types for different content:
+  - **Finder** – Browse projects and files in a familiar file manager interface
+  - **Safari** – Read developer blog posts and articles
+  - **Terminal** – Display technical skills and expertise
+  - **Resume** – View PDF resume with download option
+  - **Text Viewer** – Read detailed project descriptions and information
+  - **Image Viewer** – Display portfolio images and gallery
+- **Project Showcase** – Interactive project browser with descriptions, screenshots, and links
+- **Smooth Animations** – GSAP-powered animations and draggable window interactions
+- **Responsive Design** – Works seamlessly across different screen sizes
+- **Dark Mode Support** – Beautiful dark theme with Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend Framework:** React 19
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS 4
+- **Animation:** GSAP 3
+- **State Management:** Zustand
+- **Icons:** Lucide React
+- **PDF Viewer:** React PDF
+- **Utilities:** Immer, dayjs, clsx
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16+)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/IliaAhd/MacOs-Portfolio.git
+cd MacOs-Portfolio
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview Build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm lint
+```
+
+## Project Structure
+
+```
+src/
+├── components/        # Reusable UI components (Dock, Navbar, WindowControls, etc.)
+├── windows/           # Window components (Finder, Safari, Terminal, Resume, Text, Image)
+├── hoc/               # Higher-order components (WindowWrapper)
+├── store/             # Zustand state management (window, location stores)
+├── constants/         # Data and configuration files
+├── assets/            # Images and static assets
+├── App.jsx            # Main application component
+├── index.css          # Global styles
+└── main.jsx           # Application entry point
+```
+
+## Features in Detail
+
+### Window Management
+
+- Drag windows around the screen
+- Focus windows by clicking (z-index management)
+- Open/close windows with smooth animations
+- Window controls (minimize, maximize, close buttons)
+
+### File Navigation
+
+- Browse projects in an intuitive file browser
+- Click files to open them in appropriate windows
+- Navigate through folders and subfolders
+- Support for multiple file types (txt, img, pdf, url, fig)
+
+### Content Types
+
+- **Text Files** – Detailed project descriptions with images and multiple paragraphs
+- **Images** – Full-size image viewer with aspect ratio preservation
+- **PDFs** – Embedded PDF viewer for resume
+- **URLs** – Direct links to external resources
+- **Web Content** – Blog posts and articles in Safari window
+
+## Customization
+
+### Adding Projects
+
+Edit `src/constants/index.js` and add your projects to the `WORK_LOCATION` object:
+
+```javascript
+{
+  id: 1,
+  name: "Your Project Name",
+  icon: "/images/folder.png",
+  kind: "folder",
+  children: [
+    {
+      id: 1,
+      name: "project-info.txt",
+      icon: "/images/txt.png",
+      kind: "file",
+      fileType: "txt",
+      description: ["Your project description..."],
+    },
+    // Add more files...
+  ],
+}
+```
+
+### Customizing Appearance
+
+- Modify Tailwind colors in `tailwind.config.js`
+- Update global styles in `src/index.css`
+- Customize component styles in individual component files
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Author
+
+**Ilia Ahadi** – [GitHub](https://github.com/IliaAhd) | [LinkedIn](https://www.linkedin.com/in/ilia-ahadi/)
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit pull requests.
+
+---
+
+_Inspired by the elegance of macOS design, built with modern web technologies._
