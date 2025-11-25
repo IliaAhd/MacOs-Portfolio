@@ -37,6 +37,7 @@ function Finder() {
             <p className="text-sm font-medium truncate">{item.name}</p>
           </li>
         ))}
+        <li className="h-6"></li>
       </ul>
     </div>
   );
