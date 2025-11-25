@@ -24,8 +24,8 @@ function Finder() {
   const renderList = (items, name) => (
     <div>
       <h3>{name}</h3>
-      {items.map((item) => (
-        <ul>
+      <ul>
+        {items.map((item) => (
           <li
             className={clsx(
               item.id === activeLocation.id ? "active" : "not-active"
@@ -36,8 +36,8 @@ function Finder() {
             <img className="w-4" src={item.icon} alt={item.name} />
             <p className="text-sm font-medium truncate">{item.name}</p>
           </li>
-        </ul>
-      ))}
+        ))}
+      </ul>
     </div>
   );
 
