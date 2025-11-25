@@ -1,4 +1,4 @@
-import { Dock, Navbar, Welcome } from "@components";
+import { Dock, Home, Navbar, Welcome } from "@components";
 import {
   Finder,
   Resume,
@@ -7,6 +7,7 @@ import {
   Text,
   Image,
   Contact,
+  Photos,
 } from "@windows";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
@@ -27,6 +28,9 @@ function App() {
       <Text />
       <Image />
       <Contact />
+      <Photos />
+
+      <Home />
     </main>
   );
 }
