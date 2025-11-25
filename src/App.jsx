@@ -1,4 +1,4 @@
-import { Dock, Navbar, Welcome } from "@components";
+import { Dock, Home, Navbar, Welcome } from "@components";
 import {
   Finder,
   Resume,
@@ -27,6 +27,8 @@ function App() {
       <Text />
       <Image />
       <Contact />
+
+      <Home />
     </main>
   );
 }
