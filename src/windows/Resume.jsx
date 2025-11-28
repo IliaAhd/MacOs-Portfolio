@@ -2,6 +2,7 @@ import { WindowControls } from "@components";
 import { MOBILE_BREAKPOINT } from "@constants";
 import WindowWrapper from "@hoc/WindowWrapper";
 import { DownloadIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -10,16 +11,25 @@ pdfjs.GlobalWorkerOptions.workerSrc =
   `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`.toString();
 
 function Resume() {
-  const width = document.documentElement.getBoundingClientRect().width;
+  const [width, setWidth] = useState(
+    document.documentElement.getBoundingClientRect().width
+  );
+
+  useEffect(() => {
+    const handleResize = () =>
+      setWidth(document.documentElement.getBoundingClientRect().width);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div>
       <div id="window-header">
         <WindowControls target="resume" />
 
-        <h2 className="hidden md:block">Terminal</h2>
+        <h2 className="hidden md:block">Resume.pdf</h2>
         <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
-          Terminal
+          Resume
         </p>
 
         <a
