@@ -1,4 +1,5 @@
 import { WindowControls } from "@components";
+import { MOBILE_BREAKPOINT } from "@constants";
 import WindowWrapper from "@hoc/WindowWrapper";
 import { DownloadIcon } from "lucide-react";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -9,14 +10,20 @@ pdfjs.GlobalWorkerOptions.workerSrc =
   `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`.toString();
 
 function Resume() {
+  const width = document.documentElement.getBoundingClientRect().width;
+
   return (
     <div>
       <div id="window-header">
         <WindowControls target="resume" />
-        <h2>Resume.pdf</h2>
+
+        <h2 className="hidden md:block">Terminal</h2>
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          Terminal
+        </p>
 
         <a
-          className="cursor-pointer"
+          className="cursor-pointer hidden md:inline-block"
           title="Download resume"
           href="/files/resume.pdf"
           download
@@ -26,7 +33,7 @@ function Resume() {
       </div>
 
       <Document file="/files/resume.pdf">
-        <Page pageNumber={1} />
+        <Page width={width > MOBILE_BREAKPOINT ? 600 : width} pageNumber={1} />
       </Document>
     </div>
   );

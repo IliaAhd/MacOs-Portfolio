@@ -13,7 +13,11 @@ function Text() {
     <div>
       <div id="window-header">
         <WindowControls target="txtfile" />
-        <h2>{name}</h2>
+
+        <h2 className="hidden md:block">{name}</h2>
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          Preview
+        </p>
       </div>
 
       <div className="p-5 space-y-6">

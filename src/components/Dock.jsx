@@ -1,12 +1,15 @@
-import { dockApps } from "@constants";
+import { dockApps, MOBILE_BREAKPOINT } from "@constants";
 import { useGSAP } from "@gsap/react";
+import useLocationStore from "@store/location";
 import useWindowStore from "@store/window";
+import clsx from "clsx";
 import gsap from "gsap";
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
 
 function Dock() {
   const { openWindow, closeWindow, windows } = useWindowStore();
+  const { resetToRoot } = useLocationStore();
   const dockRef = useRef();
 
   useGSAP(() => {
@@ -69,6 +72,13 @@ function Dock() {
     if (window.isOpen) {
       closeWindow(app.id);
     } else {
+      // Reset to root Portfolio view on mobile when opening Finder
+      const isMobile =
+        document.documentElement.getBoundingClientRect().width <=
+        MOBILE_BREAKPOINT;
+      if (app.id === "finder" && isMobile) {
+        resetToRoot();
+      }
       openWindow(app.id);
     }
   }
@@ -76,8 +86,14 @@ function Dock() {
   return (
     <section id="dock">
       <div className="dock-container" ref={dockRef}>
-        {dockApps.map(({ id, name, icon, canOpen }) => (
-          <div className="relative flex justify-center" key={id}>
+        {dockApps.map(({ id, name, icon, canOpen, onMobile }) => (
+          <div
+            className={clsx(
+              "relative justify-center",
+              onMobile ? "flex" : "hidden md:flex"
+            )}
+            key={id}
+          >
             <button
               className="dock-icon"
               onClick={() => {

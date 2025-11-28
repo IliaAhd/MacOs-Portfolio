@@ -41,36 +41,42 @@ const dockApps = [
     name: "Portfolio", // was "Finder"
     icon: "finder.png",
     canOpen: true,
+    onMobile: true,
   },
   {
     id: "safari",
     name: "Articles", // was "Safari"
     icon: "safari.png",
     canOpen: true,
+    onMobile: true,
   },
   {
     id: "photos",
     name: "Gallery", // was "Photos"
     icon: "photos.png",
     canOpen: true,
+    onMobile: true,
   },
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
     icon: "contact.png",
     canOpen: true,
+    onMobile: true,
   },
   {
     id: "terminal",
     name: "Skills", // was "Terminal"
     icon: "terminal.png",
     canOpen: true,
+    onMobile: false,
   },
   {
     id: "trash",
     name: "Archive", // was "Trash"
     icon: "trash.png",
     canOpen: false,
+    onMobile: false,
   },
 ];
 
@@ -485,3 +491,5 @@ const WINDOW_CONFIG = {
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+
+export const MOBILE_BREAKPOINT = 767;

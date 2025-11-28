@@ -7,15 +7,26 @@ function Contact() {
     <div>
       <div id="window-header">
         <WindowControls target="contact" />
-        <h2>Contact Me</h2>
+
+        <h2 className="hidden md:block">Contact Me</h2>
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          Contact
+        </p>
       </div>
 
       <div className="p-5 space-y-5">
-        <img className="w-20 rounded-full" src="/images/ilia.jpg" alt="Ilia" />
+        <div className="space-y-5 flex flex-col items-center md:items-start">
+          <img
+            className="w-20 rounded-full"
+            src="/images/ilia.jpg"
+            alt="Ilia"
+          />
 
-        <h3>Let's Connect</h3>
-        <p>Got a question or want to work together? Feel free to reach out!</p>
-
+          <h3>Let's Connect</h3>
+          <p>
+            Got a question or want to work together? Feel free to reach out!
+          </p>
+        </div>
         <ul>
           {socials.map(({ id, bg, link, icon, text }) => (
             <li style={{ backgroundColor: bg }} key={id}>

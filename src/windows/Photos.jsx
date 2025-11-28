@@ -8,11 +8,15 @@ function Photos() {
   const { openWindow } = useWindowStore();
 
   return (
-    <div>
+    <>
       <div id="window-header">
         <WindowControls target="photos" />
 
-        <div className="w-full flex justify-end items-center gap-3 text-gray-500">
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          All Photos
+        </p>
+
+        <div className="w-full hidden md:flex justify-end items-center gap-3 text-gray-500">
           <Mail className="icon" />
           <Search className="icon" />
         </div>
@@ -55,7 +59,7 @@ function Photos() {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
