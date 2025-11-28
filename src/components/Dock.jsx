@@ -1,4 +1,4 @@
-import { dockApps, MOBILE_BREAKPOINT } from "@constants";
+import { dockApps, locations, MOBILE_BREAKPOINT } from "@constants";
 import { useGSAP } from "@gsap/react";
 import useLocationStore from "@store/location";
 import useWindowStore from "@store/window";
@@ -9,7 +9,7 @@ import { Tooltip } from "react-tooltip";
 
 function Dock() {
   const { openWindow, closeWindow, windows } = useWindowStore();
-  const { resetToRoot } = useLocationStore();
+  const { resetToRoot, navigateTo } = useLocationStore();
   const dockRef = useRef();
 
   useGSAP(() => {
@@ -65,6 +65,12 @@ function Dock() {
   function toggleApp(app) {
     if (!app.canOpen) return;
 
+    if (app.id === "trash") {
+      openWindow("finder");
+      navigateTo(locations.trash);
+      return;
+    }
+
     const window = windows[app.id];
 
     if (!window) return;
@@ -72,10 +78,10 @@ function Dock() {
     if (window.isOpen) {
       closeWindow(app.id);
     } else {
-      // Reset to root Portfolio view on mobile when opening Finder
       const isMobile =
         document.documentElement.getBoundingClientRect().width <=
         MOBILE_BREAKPOINT;
+
       if (app.id === "finder" && isMobile) {
         resetToRoot();
       }
