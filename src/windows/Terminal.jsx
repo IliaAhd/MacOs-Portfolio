@@ -1,14 +1,17 @@
 import WindowControls from "@components/WindowControls";
 import { techStack } from "@constants";
 import WindowWrapper from "@hoc/WindowWrapper";
-import { BadgeCheck, Box, Check, Flag } from "lucide-react";
+import { Box, Check, Flag } from "lucide-react";
 
 function Terminal() {
   return (
     <div>
       <div id="window-header">
         <WindowControls target="terminal" />
-        <h2>Tech Stack</h2>
+        <h2 className="hidden md:block">Resume.pdf</h2>
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          Resume
+        </p>
       </div>
 
       <div className="techstack">
@@ -24,9 +27,14 @@ function Terminal() {
 
         <ul className="content">
           {techStack.map(({ category, items }) => (
-            <li className="flex items-center" key={category}>
-              <Box className="check" size={18} />
-              <h3>{category}</h3>
+            <li
+              className="flex md:items-center flex-col md:flex-row"
+              key={category}
+            >
+              <div className="flex items-center">
+                <Box className="check" size={18} />
+                <h3>{category}</h3>
+              </div>
               <ul>
                 {items.map((item, i) => (
                   <li key={i}>
@@ -45,7 +53,7 @@ function Terminal() {
             loaded successfully!
           </p>
 
-          <p className="text-white">
+          <p className="md:text-white">
             <Flag size={15} /> Render time: 7ms
           </p>
         </div>

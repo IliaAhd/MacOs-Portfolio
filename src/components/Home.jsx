@@ -22,7 +22,22 @@ function Home() {
 
   return (
     <section id="home">
-      <ul>
+      <div className="mobile-icons">
+        <img
+          className="size-20 cursor-pointer hover:scale-105 transition-transform duration-400"
+          onClick={() => openWindow("resume")}
+          src="/images/pages.png"
+          alt="Notes"
+        />
+        <img
+          className="size-20 cursor-pointer hover:scale-105 transition-transform duration-400"
+          onClick={() => openWindow("terminal")}
+          src="/images/terminal.png"
+          alt="Terminal"
+        />
+      </div>
+
+      <ul className="hidden md:block">
         {projects.map((project) => (
           <li
             className={clsx("group folder", project.windowPosition)}

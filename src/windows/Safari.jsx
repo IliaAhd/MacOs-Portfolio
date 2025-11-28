@@ -19,14 +19,18 @@ function Safari() {
       <div id="window-header">
         <WindowControls target="safari" />
 
-        <PanelLeft className="ml-10 icon" />
+        <p className="md:hidden line-clamp-1 font-georama text-black text-lg flex-[1.5]">
+          Safari
+        </p>
 
-        <div className="flex items-center gap-1 ml-5">
+        <PanelLeft className="hidden md:inline ml-10 icon" />
+
+        <div className="hidden md:flex items-center gap-1 ml-5">
           <ChevronLeft className="icon" />
           <ChevronRight className="icon" />
         </div>
 
-        <div className="flex-1 flex-center gap-3">
+        <div className="flex-1 hidden md:flex flex-center gap-3">
           <ShieldHalf className="icon" />
 
           <div className="search">
@@ -40,7 +44,7 @@ function Safari() {
           </div>
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-5">
           <Share className="icon" />
           <Plus className="icon" />
           <Copy className="icon" />

@@ -6,6 +6,7 @@ const useWindowStore = create(
   immer((set) => ({
     windows: WINDOW_CONFIG,
     nextZIndex: INITIAL_Z_INDEX + 1,
+    navWhiteBg: false,
 
     openWindow: (windowKey, data = null) =>
       set((state) => {
@@ -15,6 +16,7 @@ const useWindowStore = create(
         win.zIndex = state.nextZIndex;
         win.data = data ?? win.data;
         state.nextZIndex++;
+        state.navWhiteBg = true;
       }),
 
     closeWindow: (windowKey) =>
@@ -24,6 +26,9 @@ const useWindowStore = create(
         win.isOpen = false;
         win.zIndex = INITIAL_Z_INDEX;
         win.data = null;
+
+        Object.values(state.windows).some((w) => w.isOpen) ||
+          (state.navWhiteBg = false);
       }),
 
     focusWindow: (windowKey) =>

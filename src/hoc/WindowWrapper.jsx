@@ -1,8 +1,9 @@
+import { MOBILE_BREAKPOINT } from "@constants";
 import { useGSAP } from "@gsap/react";
 import useWindowStore from "@store/window";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 function WindowWrapper(Component, windowKey) {
   function Wrapped(props) {
@@ -10,9 +11,20 @@ function WindowWrapper(Component, windowKey) {
     const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef();
 
+    const [width, setWidth] = useState(
+      document.documentElement.getBoundingClientRect().width
+    );
+
+    useEffect(() => {
+      const handleResize = () =>
+        setWidth(document.documentElement.getBoundingClientRect().width);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     useGSAP(() => {
       const el = ref.current;
-      if (!el || !isOpen) return;
+      if (!el || !isOpen || width < MOBILE_BREAKPOINT) return;
 
       el.style.display = "block";
 
@@ -31,7 +43,7 @@ function WindowWrapper(Component, windowKey) {
 
     useGSAP(() => {
       const el = ref.current;
-      if (!el) return;
+      if (!el || width < MOBILE_BREAKPOINT) return;
 
       const [instance] = Draggable.create(el, {
         onPress: () => focusWindow(windowKey),
@@ -47,7 +59,12 @@ function WindowWrapper(Component, windowKey) {
     }, [isOpen]);
 
     return (
-      <section className="absolute" id={windowKey} ref={ref} style={{ zIndex }}>
+      <section
+        className="absolute window-root rounded-none md:rounded-xl h-screen md:h-auto overflow-auto pb-40 md:pb-0"
+        id={windowKey}
+        ref={ref}
+        style={{ zIndex }}
+      >
         <Component {...props} />
       </section>
     );
