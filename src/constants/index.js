@@ -89,7 +89,7 @@ const blogPosts = [
     link: "https://www.linkedin.com/posts/ilia-ahadi_%DA%86%D8%B1%D8%A7-%D8%A7%D9%85%D8%B1%D9%88%D8%B2%D9%87-%D8%A8%D9%87-%D9%81%D8%B1%DB%8C%D9%85%D9%88%D8%B1%DA%A9%D9%87%D8%A7%DB%8C-%D9%81%D8%B1%D8%A7%D9%86%D8%AA%D8%A7%D9%86%D8%AF-%D9%85%D8%AB%D9%84-react-activity-7398658922200604672-McT5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWavpsBIXuYCwEH55tsnqgJdnRv1gTPNhE",
   },
   {
-    id: 1,
+    id: 2,
     date: "Aug 13, 2025",
     title: "Welcome to My 98 Blog",
     image: "/images/blog2.png",
